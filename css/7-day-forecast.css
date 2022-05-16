@@ -1,0 +1,381 @@
+:root {
+  --main-radius: 5px;
+  --main-padding: 1px;
+}
+
+p {
+  margin: 1px;
+}
+
+ul {
+  margin: 0;
+  padding: 2px 0;
+}
+
+li {
+  list-style-type: none;
+}
+
+li snap {
+  font-weight: 500;
+  text-transform: lowercase;
+}
+
+.body {
+  display: block;
+  margin: 20px auto;
+  width: 50%;
+  font-size: 0.5em;
+}
+
+.container {
+  display: grid;
+  height: 60vh;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-rows: 0.5fr 0.5fr 0.6fr 1fr 1fr 1fr 1fr 1fr;
+  grid-template-areas:
+    "head head head"
+    "current-date current-date current-date"
+    "location location location"
+    "today1 today2 today3"
+    "sun mon tue"
+    "wed thu fri"
+    "sat sat sat"
+    "footer footer footer";
+  grid-gap: 0.6em;
+  font-family: "Fredericka the Great", cursive;
+  font-size: 1em;
+  text-transform: uppercase;
+  color: #b54b61;
+  text-align: center;
+}
+
+.video-item {
+  height: 100vh;
+  width: 100vw;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: -1;
+  object-fit: cover;
+}
+
+.word-wrap {
+  overflow-wrap: break-word;
+  word-wrap: break-word;
+  -webkit-hyphens: auto;
+  -ms-hyphens: auto;
+  -moz-hyphens: auto;
+  hyphens: auto;
+}
+
+.search-box {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+#input-text {
+  width: 60%;
+  text-align: left;
+  font-size: 1.4em;
+  padding: 3px;
+  text-indent: 8px;
+  border: 1px solid #f68989;
+  border-radius: 3px;
+  color: #826f66;
+  margin-right: 5px;
+}
+::placeholder {
+  color: #f7ccac;
+}
+
+input:focus-visible {
+  outline: 4px solid hsl(345, 44%, 43%, 0.2);
+  margin: 3px;
+  transition: 200ms all ease-in-out;
+}
+
+#button-search:hover {
+  background: #f68989;
+  color: #fbf8f7;
+  font-weight: bolder;
+  border: 1px solid #f9f8f7;
+}
+
+#button-search {
+  box-sizing: content-box;
+  text-align: center;
+  width: 20%;
+  font-size: 1.4em;
+  padding: 3px;
+  background: #f8c9cb;
+  border: 1px solid #f68989;
+  border-radius: 3px;
+  color: #fffbfe;
+  transition: border-color 200ms ease-in-out;
+}
+
+#head {
+  grid-area: head;
+  border-radius: var(--main-radius);
+  padding-top: var(--main-padding);
+  font-size: 3em;
+  font-weight: 900;
+  -webkit-text-stroke: 1px #b54b61;
+  color: #ffecfa;
+  text-shadow: white 0.5px 0.5px;
+}
+
+#current-date {
+  grid-area: current-date;
+  border-radius: var(--main-radius);
+  padding-top: var(--main-padding);
+  margin-bottom: 5px;
+  display: inline-block;
+  font-size: 2.5em;
+  font-weight: 900;
+  -webkit-text-stroke: 0.1px #ffffff;
+  color: rgba(224, 11, 65, 0.5);
+  text-shadow: white 0.5px 0.5px;
+  text-transform: none;
+}
+
+#location {
+  grid-area: location;
+  border-radius: var(--main-radius);
+  padding-top: var(--main-padding);
+  font-size: 1.8em;
+}
+
+.location-icon {
+  border: 1.5px solid rgb(255, 255, 255);
+  border-radius: 30px;
+  background: white;
+  width: 10%;
+  max-width: 37px;
+  cursor: pointer;
+  margin-left: 5px;
+  display: inline;
+}
+
+.x-zoom:hover {
+  transform: scale(1.1);
+}
+
+#location input {
+  padding: 8px;
+}
+
+#today1 {
+  grid-area: today1;
+  border-radius: var(--main-radius);
+  padding-top: var(--main-padding);
+  /* text-shadow: white 1px 1.5px; */
+  margin-top: 5px;
+  text-shadow: white 1px 2px 3px;
+  min-width: 150px;
+}
+#weather-description {
+  text-transform: none;
+  margin: 0;
+  padding: 0;
+}
+#tempC-today:hover,
+#tempF-today:hover {
+  cursor: pointer;
+  font-size: medium;
+}
+
+.temp-C-F-hover-js {
+  color: #f5b8cd;
+  -webkit-text-stroke: 0.5px #b54b61;
+  opacity: 80%;
+}
+
+.tempActiveDay {
+  font-weight: thin;
+  text-transform: lowercase;
+}
+
+.thin {
+  font-weight: thin;
+  text-transform: lowercase;
+}
+
+.thinCap-js {
+  font-weight: thin;
+  text-transform: capitalize;
+  font-size: 0.8em;
+}
+
+.bolder {
+  font-size: 2.5em;
+  font-weight: 900;
+}
+
+.bold {
+  font-size: 2em;
+  font-weight: 900;
+}
+
+.s-bold {
+  font-size: 1.5em;
+  font-weight: 900;
+  position: relative;
+  top: -9px;
+}
+
+/* .font-l {
+  font-size: larger;
+  font-weight: 900;
+  text-transform: none;
+  color: #2f2e41;
+  text-shadow: none;
+} */
+
+/* .time {
+  font-size: 2em;
+  font-weight: 400;
+  text-transform: lowercase;
+} */
+
+#today2 {
+  grid-area: today2;
+  border-radius: var(--main-radius);
+  padding-top: var(--main-padding);
+  min-width: 150px;
+}
+
+#today2 img {
+  transform: translateY(-9%);
+  min-width: 150px;
+}
+
+#today3 {
+  grid-area: today3;
+  border-radius: var(--main-radius);
+  padding-top: var(--main-padding);
+  text-transform: capitalize;
+  font-size: 1.6em;
+  font-weight: 900;
+  text-shadow: white 1px 1px 3px;
+  margin-top: 5px;
+  min-width: 150px;
+}
+
+.days-degree {
+  display: block;
+  margin: 0 auto;
+}
+
+.temp {
+  display: flex;
+  transform: translateY(-70%);
+}
+
+.day {
+  display: inline;
+  position: relative;
+  right: -10px;
+  top: -27px;
+}
+
+.daysvg {
+  display: inline;
+  position: relative;
+  right: -15px;
+}
+
+#sun,
+#mon,
+#tue,
+#wed,
+#thu,
+#fri,
+#sat {
+  border-radius: var(--main-radius);
+  padding-top: var(--main-padding);
+  font-size: 1.6em;
+  color: white;
+}
+.background-day {
+  background-color: hsl(345, 44%, 43%, 0.5);
+}
+.active-day-js {
+  background-color: rgba(224, 11, 65, 0.5);
+  border: 2px solid white;
+  font-weight: 900;
+  /* -webkit-text-stroke: 0.3px #ffffff; */
+}
+
+#sun {
+  grid-area: sun;
+}
+
+#mon {
+  grid-area: mon;
+}
+
+#tue {
+  grid-area: tue;
+}
+
+#wed {
+  grid-area: wed;
+}
+
+#thu {
+  grid-area: thu;
+}
+
+#fri {
+  grid-area: fri;
+}
+
+#sat {
+  grid-area: sat;
+}
+
+.footer {
+  height: 1vh;
+  display: flex;
+  justify-items: left;
+  align-items: top;
+  text-transform: none;
+  font-size: small;
+  opacity: 70%;
+}
+
+@media only screen and (max-width: 800px) {
+  .body {
+    display: block;
+    margin: 10px auto;
+    width: 95%;
+    height: 90%;
+  }
+
+  .container {
+    height: 50vh;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 0.5fr 0.5fr 1fr 1fr 0.6fr 0.6fr 0.6fr 0.6fr 0.6fr 0.6fr 1fr;
+    grid-template-areas:
+      "head head "
+      "current-date current-date"
+      "location location"
+      "today1 today3"
+      "today2 today2"
+      "sun mon"
+      "tue wed"
+      "thu fri"
+      "sat sat"
+      "footer footer";
+  }
+
+  #location {
+    font-size: 1.1em;
+  }
+
+  .location-icon {
+    max-width: 32px;
+  }
+}
