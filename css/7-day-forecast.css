@@ -74,6 +74,7 @@ li snap {
   justify-content: center;
   align-items: center;
 }
+
 #input-text {
   width: 60%;
   text-align: left;
@@ -85,6 +86,7 @@ li snap {
   color: #826f66;
   margin-right: 5px;
 }
+
 ::placeholder {
   color: #f7ccac;
 }
@@ -175,11 +177,13 @@ input:focus-visible {
   text-shadow: white 1px 2px 3px;
   min-width: 150px;
 }
+
 #weather-description {
   text-transform: none;
   margin: 0;
   padding: 0;
 }
+
 #tempC-today:hover,
 #tempF-today:hover {
   cursor: pointer;
@@ -224,20 +228,6 @@ input:focus-visible {
   position: relative;
   top: -9px;
 }
-
-/* .font-l {
-  font-size: larger;
-  font-weight: 900;
-  text-transform: none;
-  color: #2f2e41;
-  text-shadow: none;
-} */
-
-/* .time {
-  font-size: 2em;
-  font-weight: 400;
-  text-transform: lowercase;
-} */
 
 #today2 {
   grid-area: today2;
@@ -298,9 +288,11 @@ input:focus-visible {
   font-size: 1.6em;
   color: white;
 }
+
 .background-day {
   background-color: hsl(345, 44%, 43%, 0.5);
 }
+
 .active-day-js {
   background-color: rgba(224, 11, 65, 0.5);
   border: 2px solid white;
@@ -344,6 +336,10 @@ input:focus-visible {
   text-transform: none;
   font-size: small;
   opacity: 70%;
+}
+
+.sign {
+  padding-left: 8px;
 }
 
 @media only screen and (max-width: 800px) {
