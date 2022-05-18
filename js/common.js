@@ -18,7 +18,7 @@ tempTodayF.innerHTML = `<snap class="temp-C-F-hover-js">°F</snap>`;
 let location1 = document.querySelector("#current-location");
 
 function showCityWeather(response) {
-  console.log(response.data.name);
+  // console.log(response.data);
   cityName.innerHTML = response.data.name;
   tempMetric = Math.round(response.data.main.temp);
   tempCity.innerHTML = tempMetric;
@@ -111,7 +111,10 @@ function getActiveDay() {
   let id = `${currentDay.format(date)}`;
   id = id.toLocaleLowerCase();
   document.getElementById(id).classList.add("active-day-js");
-  // tempHigh.innerHTML = tempMetric;
+  let imgId = `img${id}`;
+  let imageToday = document.getElementById(imgId).src;
+  let imageHead = document.getElementById("imgHead");
+  imageHead.src = imageToday;
 }
 
 tempTodayC.addEventListener("click", lookTempC);

@@ -35,21 +35,24 @@
     <div id="today1">
       <div>
         <p>
-          <snap class="bolder word-wrap" id="name-city">Kyiv</snap>
+          <snap class="word-wrap" id="name-city">Kyiv</snap>
         </p>
       </div>
       <p>
-        <snap id="temp-current" class="bolder">19</snap>
-        <selection class="s-bold">
-          <snap id="tempC-today">°C</snap> |<snap id="tempF-today">°F</snap>
-        </selection>
+      <div class="overview">
+        <snap id="temp-current">19</snap>
+        <selection class="current-degree">
+          <snap id="tempC-today">°C</snap> <small>|</small>
+          <snap id="tempF-today">°F</snap>
+          <img src="fotobank/day.svg" class="daysvg" id="imgHead" />
+      </div>
+      <p id="weather-description">
       </p>
-      <p id="weather-description" class="bold">
-        <snap id="weather-icon"></snap>
+      </selection>
       </p>
     </div>
     <div id="today2">
-      <img src="fotobank/nature2.svg" width="50%" class="zoom" />
+      <img src="fotobank/nature2.svg" width="40%" class="zoom" />
     </div>
     <div id="today3">
       <ul></ul>
@@ -75,7 +78,7 @@
     </div>
     <div id="sun" class="x-zoom background-day">
       <snap class="day">Sun</snap>
-      <img src="fotobank/cloudy.svg" class="daysvg" />
+      <img src="fotobank/cloudy.svg" class="daysvg" id="imgsun" />
       <div class="temp">
         <snap class="days-degree">
           <snap class="high-temp">16</snap>
@@ -87,7 +90,7 @@
     </div>
     <div id="mon" class="x-zoom background-day">
       <snap class="day">Mon</snap>
-      <img src="fotobank/day.svg" class="daysvg" />
+      <img src="fotobank/day.svg" class="daysvg" id="imgmon" />
       <div class="temp">
         <snap class="days-degree">
           <snap class="high-temp">16</snap>
@@ -99,7 +102,7 @@
     </div>
     <div id="tue" class="x-zoom background-day">
       <snap class="day">Tue</snap>
-      <img src="fotobank/cloudy-day-2.svg" class="daysvg" />
+      <img src="fotobank/cloudy-day-2.svg" class="daysvg" id="imgtue" />
       <div class="temp">
         <snap class="days-degree">
           <snap class="high-temp">16</snap>
@@ -111,7 +114,7 @@
     </div>
     <div id="wed" class="x-zoom background-day">
       <snap class="day">Wed</snap>
-      <img src="fotobank/cloudy-day-1.svg" class="daysvg" />
+      <img src="fotobank/cloudy-day-1.svg" class="daysvg" id="imgwed" />
       <div class="temp">
         <snap class="days-degree">
           <snap class="high-temp">16</snap>
@@ -123,7 +126,7 @@
     </div>
     <div id="thu" class="x-zoom background-day">
       <snap class="day">Thu</snap>
-      <img src="fotobank/rainy-1.svg" class="daysvg" />
+      <img src="fotobank/rainy-1.svg" class="daysvg" id="imgthu" />
       <div class="temp">
         <snap class="days-degree">
           <snap class="high-temp">16</snap>
@@ -135,7 +138,7 @@
     </div>
     <div id="fri" class="x-zoom background-day">
       <snap class="day">Fri</snap>
-      <img src="fotobank/rainy-6.svg" class="daysvg" />
+      <img src="fotobank/rainy-6.svg" class="daysvg" id="imgfri" />
       <div class="temp">
         <snap class="days-degree">
           <snap class="high-temp">16</snap>
@@ -147,7 +150,7 @@
     </div>
     <div id="sat" class="x-zoom background-day">
       <snap class="day">Sat</snap>
-      <img src="fotobank/thunder.svg" class="daysvg" />
+      <img src="fotobank/thunder.svg" class="daysvg" id="imgsat" />
       <div class="temp">
         <snap class="days-degree">
           <snap class="high-temp">16</snap>
