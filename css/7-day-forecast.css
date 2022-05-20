@@ -18,7 +18,6 @@ li {
 
 li snap {
   font-weight: 500;
-  text-transform: lowercase;
 }
 
 .body {
@@ -237,11 +236,6 @@ selection.current-degree {
   opacity: 80%;
 }
 
-.tempActiveDay {
-  font-weight: thin;
-  text-transform: lowercase;
-}
-
 .thin {
   font-weight: thin;
   text-transform: lowercase;
@@ -271,12 +265,16 @@ selection.current-degree {
   grid-area: today3;
   border-radius: var(--main-radius);
   padding-top: var(--main-padding);
-  text-transform: capitalize;
   font-size: 1.6em;
   font-weight: 900;
   text-shadow: white 1px 1px 3px;
   margin-top: 5px;
   min-width: 150px;
+  text-transform: lowercase
+}
+
+li::first-letter {
+  text-transform: capitalize
 }
 
 .days-degree {
