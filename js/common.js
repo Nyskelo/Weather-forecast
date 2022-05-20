@@ -16,6 +16,7 @@ let tempTodayC = document.querySelector("#tempC-today");
 let tempTodayF = document.querySelector("#tempF-today");
 tempTodayF.innerHTML = `<snap class="temp-C-F-hover-js">°F</snap>`;
 let location1 = document.querySelector("#current-location");
+let imgHead = document.querySelector("#imgHead");
 
 function showCityWeather(response) {
   // console.log(response.data);
@@ -44,6 +45,8 @@ function showCityWeather(response) {
   sunrise.innerHTML = timeSunRise;
   sunset.innerHTML = timeSunSet;
   inputTextCity.value = "";
+  imgHead.setAttribute("src", `fotobank/${response.data.weather[0].icon}.svg`);
+  imgHead.setAttribute("alt", `${response.data.weather[0].description}`);
 }
 
 function searchCity(city) {
@@ -111,10 +114,6 @@ function getActiveDay() {
   let id = `${currentDay.format(date)}`;
   id = id.toLocaleLowerCase();
   document.getElementById(id).classList.add("active-day-js");
-  let imgId = `img${id}`;
-  let imageToday = document.getElementById(imgId).src;
-  let imageHead = document.getElementById("imgHead");
-  imageHead.src = imageToday;
 }
 
 tempTodayC.addEventListener("click", lookTempC);
