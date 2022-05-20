@@ -186,6 +186,17 @@ input:focus-visible {
   justify-content: center;
 }
 
+.overview selection {
+  transform: translateX(5px)
+}
+
+.overview img {
+  position: absolute;
+  width: 75px;
+  left: 20px;
+  top: -3px;
+}
+
 #name-city {
   font-size: 2.5em;
   font-weight: 900;
@@ -209,15 +220,9 @@ selection.current-degree {
 
 }
 
-.overview selection {
-  transform: translateX(5px)
-}
-
-.overview img {
-  position: absolute;
-  width: 75px;
-  left: 20px;
-  top: 2px
+#tempF-today {
+  position: relative;
+  z-index: 1000;
 }
 
 #tempC-today:hover,
@@ -400,6 +405,6 @@ selection.current-degree {
     position: absolute;
     width: 70px;
     left: 20px;
-    top: 4px
+    top: -2px
   }
 }
