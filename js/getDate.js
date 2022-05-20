@@ -10,8 +10,6 @@ function fullDateTime() {
   timeTime.innerHTML = time;
 }
 
-fullDateTime();
-
 function fullDateDayLong() {
   let date = new Date();
   let currentDay = new Intl.DateTimeFormat("en-US", {
@@ -23,3 +21,5 @@ function fullDateDayLong() {
   document.getElementById("getDay").innerHTML = `${currentDay.format(date)}, `;
 }
 fullDateDayLong();
+fullDateTime();
+setInterval(fullDateTime, 30000);
