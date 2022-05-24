@@ -26,6 +26,11 @@ a {
 
 }
 
+div.footer a.active-href {
+  color: #b54b61;
+  -webkit-text-stroke: 0;
+}
+
 a:hover {
   text-decoration: none;
   cursor: default
