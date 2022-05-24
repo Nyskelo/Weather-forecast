@@ -20,6 +20,17 @@ li snap {
   font-weight: 500;
 }
 
+a {
+  text-decoration: none;
+  color: #b54b61;
+
+}
+
+a:hover {
+  text-decoration: none;
+  cursor: default
+}
+
 .body {
   display: block;
   margin: 20px auto;
@@ -219,21 +230,21 @@ selection.current-degree {
 
 }
 
+.active-href {
+
+  color: #f5b8cd;
+  -webkit-text-stroke: 0.5px #b54b61;
+  cursor: default;
+}
+
+.active-href:hover {
+  text-decoration: underline;
+  cursor: pointer;
+}
+
 #tempF-today {
   position: relative;
   z-index: 1000;
-}
-
-#tempC-today:hover,
-#tempF-today:hover {
-  cursor: pointer;
-  font-size: medium;
-}
-
-.temp-C-F-hover-js {
-  color: #f5b8cd;
-  -webkit-text-stroke: 0.5px #b54b61;
-  opacity: 80%;
 }
 
 .thin {
@@ -353,6 +364,7 @@ li::first-letter {
 }
 
 .footer {
+  grid-area: footer;
   height: 1vh;
   display: flex;
   justify-items: left;

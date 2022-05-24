@@ -75,7 +75,8 @@ function lookTempC() {
     i.innerHTML = ` °C`;
   }
   tempCurrent.innerHTML = tempMetric;
-  tempTodayF.innerHTML = `<snap class="temp-C-F-hover-js">°F</snap>`;
+  tempTodayC.classList.remove("active-href");
+  tempTodayF.classList.add("active-href");
   tempTodayC.innerHTML = `<snap>°C</snap>`;
 }
 
@@ -91,7 +92,8 @@ function lookTempF() {
   }
   tempCurrent.innerHTML = `${tempF}`;
   tempTodayF.innerHTML = `°F`;
-  tempTodayC.innerHTML = `<snap class="temp-C-F-hover-js">°C</snap>`;
+  tempTodayC.classList.add("active-href");
+  tempTodayF.classList.remove("active-href");
 }
 
 function getLocation() {
