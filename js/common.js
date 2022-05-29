@@ -49,8 +49,6 @@ let satTemperatureMin = null;
 
 function displayForecastDaily(response) {
   let forecast = response.data.daily;
-  console.log(response.data.daily[0].dt * 1000);
-
   let dateSun = new Date(response.data.daily[0].dt * 1000);
   let sunImgDay = document.querySelector("#imgsun");
   let sunDate = document.querySelector("#daySun");
@@ -126,11 +124,9 @@ function getForecastCoordDaily(coordinates) {
   let apiKey = `910507594fe3cf58151f5b16db41c101`;
   let apiUrl = `https://api.openweathermap.org/data/2.5/onecall?lat=${coordinates.lat}&lon=${coordinates.lon}&appid=${apiKey}&units=${units}`;
   axios.get(apiUrl).then(displayForecastDaily);
-  console.log(apiUrl);
 }
 
 function showCityWeather(response) {
-  console.log(response.data);
   cityName.innerHTML = response.data.name;
   tempMetric = Math.round(response.data.main.temp);
   tempCity.innerHTML = tempMetric;
@@ -248,9 +244,6 @@ function showCityLocation(position) {
   let apiKey = `910507594fe3cf58151f5b16db41c101`;
   let cityUrl = `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&appid=${apiKey}&units=${units}`;
   axios.get(cityUrl).then(showCityWeather);
-  console.log(
-    `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&appid=${apiKey}&units=${units}`
-  );
 }
 
 function getActiveDay() {

@@ -186,7 +186,6 @@ input:focus-visible {
   grid-area: today1;
   border-radius: var(--main-radius);
   padding-top: var(--main-padding);
-  /* text-shadow: white 1px 1.5px; */
   margin-top: 5px;
   text-shadow: white 1px 2px 3px;
   min-width: 150px;
@@ -382,7 +381,7 @@ li::first-letter {
   justify-items: left;
   align-items: top;
   text-transform: none;
-  font-size: small;
+  font-size: 1.8em;
   opacity: 70%;
 }
 
