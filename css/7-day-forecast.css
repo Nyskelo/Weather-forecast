@@ -23,7 +23,6 @@ li snap {
 a {
   text-decoration: none;
   color: #b54b61;
-
 }
 
 div.footer a.active-href {
@@ -33,7 +32,7 @@ div.footer a.active-href {
 
 a:hover {
   text-decoration: none;
-  cursor: default
+  cursor: default;
 }
 
 .body {
@@ -202,7 +201,7 @@ input:focus-visible {
 }
 
 .overview selection {
-  transform: translateX(5px)
+  transform: translateX(5px);
 }
 
 .overview img {
@@ -232,11 +231,9 @@ input:focus-visible {
 selection.current-degree {
   font-size: 2em;
   font-weight: 900;
-
 }
 
 .active-href {
-
   color: #f5b8cd;
   -webkit-text-stroke: 0.5px #b54b61;
   cursor: default;
@@ -262,7 +259,7 @@ selection.current-degree {
   text-transform: capitalize;
   font-size: 0.8em;
   position: relative;
-  top: -3px
+  top: -3px;
 }
 
 #today2 {
@@ -286,11 +283,11 @@ selection.current-degree {
   text-shadow: white 1px 1px 3px;
   margin-top: 5px;
   min-width: 150px;
-  text-transform: lowercase
+  text-transform: lowercase;
 }
 
 li::first-letter {
-  text-transform: capitalize
+  text-transform: capitalize;
 }
 
 .days-degree {
@@ -303,11 +300,21 @@ li::first-letter {
   transform: translateY(-70%);
 }
 
+.low-temp {
+  font-weight: 100;
+}
+
+.high-temp {
+  font-weight: 900;
+  text-shadow: 1px 2px rgba(91, 2, 2, 0.319);
+}
+
 .day {
   display: inline;
   position: relative;
   right: -10px;
   top: -27px;
+  text-shadow: 1px 2px rgba(91, 2, 2, 0.319);
 }
 
 .daysvg {
@@ -420,6 +427,6 @@ li::first-letter {
     position: absolute;
     width: 70px;
     left: 20px;
-    top: -2px
+    top: -2px;
   }
 }

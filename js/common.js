@@ -17,9 +17,93 @@ let tempTodayF = document.querySelector("#tempF-today");
 tempTodayF.innerHTML = `<snap class="temp-C-F-hover-js">°F</snap>`;
 let location1 = document.querySelector("#current-location");
 let imgHead = document.querySelector("#imgHead");
+let unitsFahrenheit = "imperial";
+let unitsCelcius = "metric";
+
+function displayForecastDaily(response) {
+  let forecast = response.data.daily;
+  console.log(response.data.daily[0].dt * 1000);
+
+  let dateSun = new Date(response.data.daily[0].dt * 1000);
+  let sunImgDay = document.querySelector("#imgsun");
+  let sunTempMax = document.querySelector("#sun-temp-max");
+  let sunTempMin = document.querySelector("#sun-temp-min");
+  let sunDate = document.querySelector("#daySun");
+  sunImgDay.setAttribute("src", `fotobank/${forecast[0].weather[0].icon}.svg`);
+  sunTempMax.innerHTML = Math.round(forecast[0].temp.max);
+  sunTempMin.innerHTML = ` ${Math.round(forecast[0].temp.min)}`;
+  sunDate.innerHTML = `Sun, ${dateSun.getDate()}`;
+
+  let dateMon = new Date(response.data.daily[1].dt * 1000);
+  let monImgDay = document.querySelector("#imgmon");
+  let monTempMax = document.querySelector("#mon-temp-max");
+  let monTempMin = document.querySelector("#mon-temp-min");
+  let monDate = document.querySelector("#dayMon");
+  monImgDay.setAttribute("src", `fotobank/${forecast[1].weather[0].icon}.svg`);
+  monTempMax.innerHTML = Math.round(forecast[1].temp.max);
+  monTempMin.innerHTML = ` ${Math.round(forecast[1].temp.min)}`;
+  monDate.innerHTML = `Mon, ${dateMon.getDate()}`;
+
+  let dateTue = new Date(response.data.daily[2].dt * 1000);
+  let tueImgDay = document.querySelector("#imgtue");
+  let tueTempMax = document.querySelector("#tue-temp-max");
+  let tueTempMin = document.querySelector("#tue-temp-min");
+  let tueDate = document.querySelector("#dayTue");
+  tueImgDay.setAttribute("src", `fotobank/${forecast[2].weather[0].icon}.svg`);
+  tueTempMax.innerHTML = Math.round(forecast[2].temp.max);
+  tueTempMin.innerHTML = ` ${Math.round(forecast[2].temp.min)}`;
+  tueDate.innerHTML = `Tue, ${dateTue.getDate()}`;
+
+  let dateWed = new Date(response.data.daily[3].dt * 1000);
+  let wedImgDay = document.querySelector("#imgwed");
+  let wedTempMax = document.querySelector("#wed-temp-max");
+  let wedTempMin = document.querySelector("#wed-temp-min");
+  let wedDate = document.querySelector("#dayWed");
+  wedImgDay.setAttribute("src", `fotobank/${forecast[3].weather[0].icon}.svg`);
+  wedTempMax.innerHTML = Math.round(forecast[3].temp.max);
+  wedTempMin.innerHTML = ` ${Math.round(forecast[3].temp.min)}`;
+  wedDate.innerHTML = `Wed, ${dateWed.getDate()}`;
+
+  let dateThu = new Date(response.data.daily[4].dt * 1000);
+  let thuImgDay = document.querySelector("#imgthu");
+  let thuTempMax = document.querySelector("#thu-temp-max");
+  let thuTempMin = document.querySelector("#thu-temp-min");
+  let thuDate = document.querySelector("#dayThu");
+  thuImgDay.setAttribute("src", `fotobank/${forecast[4].weather[0].icon}.svg`);
+  thuTempMax.innerHTML = Math.round(forecast[4].temp.max);
+  thuTempMin.innerHTML = ` ${Math.round(forecast[4].temp.min)}`;
+  thuDate.innerHTML = `Thu, ${dateThu.getDate()}`;
+
+  let dateFri = new Date(response.data.daily[5].dt * 1000);
+  let friImgDay = document.querySelector("#imgfri");
+  let friTempMax = document.querySelector("#fri-temp-max");
+  let friTempMin = document.querySelector("#fri-temp-min");
+  let friDate = document.querySelector("#dayFri");
+  friImgDay.setAttribute("src", `fotobank/${forecast[5].weather[0].icon}.svg`);
+  friTempMax.innerHTML = Math.round(forecast[5].temp.max);
+  friTempMin.innerHTML = ` ${Math.round(forecast[5].temp.min)}`;
+  friDate.innerHTML = `Fri, ${dateFri.getDate()}`;
+
+  let dateSat = new Date(response.data.daily[6].dt * 1000);
+  let satImgDay = document.querySelector("#imgsat");
+  let satTempMax = document.querySelector("#sat-temp-max");
+  let satTempMin = document.querySelector("#sat-temp-min");
+  let satDate = document.querySelector("#daySat");
+  satImgDay.setAttribute("src", `fotobank/${forecast[6].weather[0].icon}.svg`);
+  satTempMax.innerHTML = Math.round(forecast[6].temp.max);
+  satTempMin.innerHTML = ` ${Math.round(forecast[6].temp.min)}`;
+  satDate.innerHTML = `Sat, ${dateSat.getDate()}`;
+}
+
+function getForecastCoordDaily(coordinates) {
+  let apiKey = `910507594fe3cf58151f5b16db41c101`;
+  let apiUrl = `https://api.openweathermap.org/data/2.5/onecall?lat=${coordinates.lat}&lon=${coordinates.lon}&appid=${apiKey}&units=metric`;
+  axios.get(apiUrl).then(displayForecastDaily);
+  console.log(apiUrl);
+}
 
 function showCityWeather(response) {
-  // console.log(response.data);
+  console.log(response.data);
   cityName.innerHTML = response.data.name;
   tempMetric = Math.round(response.data.main.temp);
   tempCity.innerHTML = tempMetric;
@@ -47,6 +131,7 @@ function showCityWeather(response) {
   inputTextCity.value = "";
   imgHead.setAttribute("src", `fotobank/${response.data.weather[0].icon}.svg`);
   imgHead.setAttribute("alt", `${response.data.weather[0].description}`);
+  getForecastCoordDaily(response.data.coord);
 }
 
 function searchCity(city) {

@@ -1,171 +1,213 @@
 <!DOCTYPE html>
 <html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <link rel="stylesheet" href="css/7-day-forecast.css" />
+    <title>Coded by TaTi</title>
+  </head>
 
-<head>
-  <meta charset="UTF-8" />
-  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
-  <script src="https://kit.fontawesome.com/b1bb06800f.js" crossorigin="anonymous"></script>
-  <link rel="stylesheet" href="css/7-day-forecast.css" />
-  <title>Coded by TaTi</title>
-</head>
-
-<body class="body">
-  <div class="video-box">
-    <video class="video-item"
-      src="https://cdn.videvo.net/videvo_files/video/free/2017-05/large_watermarked/170411A_35_Blossom_1080p_preview.mp4"
-      autoplay muted loop></video>
-  </div>
-  <div class="container div">
-    <div id="head">7-DAY FORECAST</div>
-    <div id="current-date">
-      <snap class="date-today word-wrap" id="getDay">… Please wait …</snap>
-      <snap id="getTime"></snap>
+  <body class="body">
+    <div class="video-box">
+      <video
+        class="video-item"
+        src="https://cdn.videvo.net/videvo_files/video/free/2017-05/large_watermarked/170411A_35_Blossom_1080p_preview.mp4"
+        autoplay
+        muted
+        loop
+      ></video>
     </div>
-    <div id="location">
-      <form class="form" id="form-search">
-        <div class="search-box">
-          <input type="text" placeholder="Type a city here.." id="input-text" />
-          <input type="submit" value="search" id="button-search" />
-          <img src="fotobank/location-icon.png" alt="current loc" class="location-icon x-zoom" id="current-location" />
+    <div class="container div">
+      <div id="head">7-DAY FORECAST</div>
+      <div id="current-date">
+        <snap class="date-today word-wrap" id="getDay">… Please wait …</snap>
+        <snap id="getTime"></snap>
+      </div>
+      <div id="location">
+        <form class="form" id="form-search">
+          <div class="search-box">
+            <input
+              type="text"
+              placeholder="Type a city here.."
+              id="input-text"
+            />
+            <input type="submit" value="search" id="button-search" />
+            <img
+              src="fotobank/location-icon.png"
+              alt="current loc"
+              class="location-icon x-zoom"
+              id="current-location"
+            />
+          </div>
+        </form>
+      </div>
+      <div id="today1">
+        <div>
+          <p>
+            <snap class="word-wrap" id="name-city">Kyiv</snap>
+          </p>
         </div>
-      </form>
-    </div>
-    <div id="today1">
-      <div>
-        <p>
-          <snap class="word-wrap" id="name-city">Kyiv</snap>
-        </p>
+        <p></p>
+        <div class="overview">
+          <snap id="temp-current">19</snap>
+          <selection class="current-degree">
+            <a href="#" href="#" id="tempC-today">°C</a> <small>|</small>
+            <a href="#" id="tempF-today" class="active-href">°F</a>
+            <img src="" class="daysvg" id="imgHead" />
+          </selection>
+        </div>
+        <p id="weather-description"></p>
       </div>
-      <p>
-      <div class="overview">
-        <snap id="temp-current">19</snap>
-        <selection class="current-degree">
-          <a href="#" href="#" id="tempC-today">°C</a> <small>|</small>
-          <a href="#" id="tempF-today" class="active-href">°F</a>
-          <img src="fotobank/01d.svg" class="daysvg" id="imgHead" />
+      <div id="today2">
+        <img src="fotobank/nature2.svg" width="40%" class="zoom" />
       </div>
-      <p id="weather-description">
-      </p>
-      </selection>
-      </p>
-    </div>
-    <div id="today2">
-      <img src="fotobank/nature2.svg" width="40%" class="zoom" />
-    </div>
-    <div id="today3">
-      <ul></ul>
-      <li>
-        Feels like: <snap id="feels_like">21</snap>
-        <snap class="thinCap-js"> °C</snap>
-      </li>
-      <li>
-        Humidity: <snap id="humidity">63</snap>
-        <snap class="thin"> %</snap>
-      </li>
-      <li>
-        Pressure: <snap id="pressure">1012.1</snap>
-        <snap class="thin"> hPa</snap>
-      </li>
-      <li>Wind: <snap id="wind">2</snap>
-        <snap class="thin"> km/h</snap>
-      </li>
-      <li>Sunrise: <snap id="sunrise">5:52</snap>
-      </li>
-      <li class="last-p">Sunset: <snap id="sunset">18:12</snap>
-      </li>
-    </div>
-    <div id="sun" class="x-zoom background-day">
-      <snap class="day">Sun</snap>
-      <img src="fotobank/04d.svg" class="daysvg" id="imgsun" />
-      <div class="temp">
-        <snap class="days-degree">
-          <snap class="high-temp">16</snap>
-          <snap class="thinCap-js"> °C</snap> /<snap class="low-temp">
-            5</snap>
+      <div id="today3">
+        <ul></ul>
+        <li>
+          Feels like: <snap id="feels_like">21</snap>
           <snap class="thinCap-js"> °C</snap>
-        </snap>
+        </li>
+        <li>
+          Humidity: <snap id="humidity">63</snap>
+          <snap class="thin"> %</snap>
+        </li>
+        <li>
+          Pressure: <snap id="pressure">1012.1</snap>
+          <snap class="thin"> hPa</snap>
+        </li>
+        <li>
+          Wind: <snap id="wind">2</snap>
+          <snap class="thin"> km/h</snap>
+        </li>
+        <li>Sunrise: <snap id="sunrise">5:52</snap></li>
+        <li class="last-p">Sunset: <snap id="sunset">18:12</snap></li>
       </div>
-    </div>
-    <div id="mon" class="x-zoom background-day">
-      <snap class="day">Mon</snap>
-      <img src="fotobank/01d.svg" class="daysvg" id="imgmon" />
-      <div class="temp">
-        <snap class="days-degree">
-          <snap class="high-temp">16</snap>
-          <snap class="thinCap-js"> °C</snap> /<snap class="low-temp">
-            5</snap>
-          <snap class="thinCap-js"> °C</snap>
-        </snap>
+      <div class="forecast"></div>
+      <div id="sun" class="x-zoom background-day">
+        <snap class="day" id="daySun">Sun</snap>
+        <img src="" class="daysvg" id="imgsun" />
+        <div class="temp">
+          <snap class="days-degree">
+            <snap class="high-temp" id="sun-temp-max">16</snap>
+            <snap class="thinCap-js">°C</snap> /<snap
+              class="low-temp"
+              id="sun-temp-min"
+            >
+              5</snap
+            >
+            <snap class="thinCap-js">°C</snap>
+          </snap>
+        </div>
       </div>
-    </div>
-    <div id="tue" class="x-zoom background-day">
-      <snap class="day">Tue</snap>
-      <img src="fotobank/02d.svg" class="daysvg" id="imgtue" />
-      <div class="temp">
-        <snap class="days-degree">
-          <snap class="high-temp">16</snap>
-          <snap class="thinCap-js"> °C</snap> /<snap class="low-temp">
-            5</snap>
-          <snap class="thinCap-js"> °C</snap>
-        </snap>
+      <div id="mon" class="x-zoom background-day">
+        <snap class="day" id="dayMon">Mon</snap>
+        <img src="" class="daysvg" id="imgmon" />
+        <div class="temp">
+          <snap class="days-degree">
+            <snap class="high-temp" id="mon-temp-max">16</snap>
+            <snap class="thinCap-js"> °C</snap> /<snap
+              class="low-temp"
+              id="mon-temp-min"
+            >
+              5</snap
+            >
+            <snap class="thinCap-js"> °C</snap>
+          </snap>
+        </div>
       </div>
-    </div>
-    <div id="wed" class="x-zoom background-day">
-      <snap class="day">Wed</snap>
-      <img src="fotobank/cloudy-day-1.svg" class="daysvg" id="imgwed" />
-      <div class="temp">
-        <snap class="days-degree">
-          <snap class="high-temp">16</snap>
-          <snap class="thinCap-js"> °C</snap> /<snap class="low-temp">
-            5</snap>
-          <snap class="thinCap-js"> °C</snap>
-        </snap>
+      <div id="tue" class="x-zoom background-day">
+        <snap class="day" id="dayTue">Tue</snap>
+        <img src="" class="daysvg" id="imgtue" />
+        <div class="temp">
+          <snap class="days-degree">
+            <snap class="high-temp" id="tue-temp-max">16</snap>
+            <snap class="thinCap-js"> °C</snap> /<snap
+              class="low-temp"
+              id="tue-temp-min"
+            >
+              5</snap
+            >
+            <snap class="thinCap-js"> °C</snap>
+          </snap>
+        </div>
       </div>
-    </div>
-    <div id="thu" class="x-zoom background-day">
-      <snap class="day">Thu</snap>
-      <img src="fotobank/10d.svg" class="daysvg" id="imgthu" />
-      <div class="temp">
-        <snap class="days-degree">
-          <snap class="high-temp">16</snap>
-          <snap class="thinCap-js"> °C</snap> /<snap class="low-temp">
-            5</snap>
-          <snap class="thinCap-js"> °C</snap>
-        </snap>
+      <div id="wed" class="x-zoom background-day">
+        <snap class="day" id="dayWed">Wed</snap>
+        <img src="" class="daysvg" id="imgwed" />
+        <div class="temp">
+          <snap class="days-degree">
+            <snap class="high-temp" id="wed-temp-max">16</snap>
+            <snap class="thinCap-js"> °C</snap> /<snap
+              class="low-temp"
+              id="wed-temp-min"
+            >
+              5</snap
+            >
+            <snap class="thinCap-js"> °C</snap>
+          </snap>
+        </div>
       </div>
-    </div>
-    <div id="fri" class="x-zoom background-day">
-      <snap class="day">Fri</snap>
-      <img src="fotobank/13d.svg" class="daysvg" id="imgfri" />
-      <div class="temp">
-        <snap class="days-degree">
-          <snap class="high-temp">16</snap>
-          <snap class="thinCap-js"> °C</snap> /<snap class="low-temp">
-            5</snap>
-          <snap class="thinCap-js"> °C</snap>
-        </snap>
+      <div id="thu" class="x-zoom background-day">
+        <snap class="day" id="dayThu">Thu</snap>
+        <img src="" class="daysvg" id="imgthu" />
+        <div class="temp">
+          <snap class="days-degree">
+            <snap class="high-temp" id="thu-temp-max">16</snap>
+            <snap class="thinCap-js"> °C</snap> /<snap
+              class="low-temp"
+              id="thu-temp-min"
+            >
+              5</snap
+            >
+            <snap class="thinCap-js"> °C</snap>
+          </snap>
+        </div>
       </div>
-    </div>
-    <div id="sat" class="x-zoom background-day">
-      <snap class="day">Sat</snap>
-      <img src="fotobank/50d.svg" class="daysvg" id="imgsat" />
-      <div class="temp">
-        <snap class="days-degree">
-          <snap class="high-temp">16</snap>
-          <snap class="thinCap-js"> °C</snap> /<snap class="low-temp">
-            5</snap>
-          <snap class="thinCap-js"> °C</snap>
-        </snap>
+      <div id="fri" class="x-zoom background-day">
+        <snap class="day" id="dayFri">Fri</snap>
+        <img src="" class="daysvg" id="imgfri" />
+        <div class="temp">
+          <snap class="days-degree">
+            <snap class="high-temp" id="fri-temp-max">16</snap>
+            <snap class="thinCap-js"> °C</snap> /<snap
+              class="low-temp"
+              id="fri-temp-min"
+            >
+              5</snap
+            >
+            <snap class="thinCap-js"> °C</snap>
+          </snap>
+        </div>
       </div>
+      <div id="sat" class="x-zoom background-day">
+        <snap class="day" id="daySat">Sat</snap>
+        <img src="" class="daysvg" id="imgsat" />
+        <div class="temp">
+          <snap class="days-degree">
+            <snap class="high-temp" id="sat-temp-max">16</snap>
+            <snap class="thinCap-js"> °C</snap> /<snap
+              class="low-temp"
+              id="sat-temp-min"
+            >
+              5</snap
+            >
+            <snap class="thinCap-js"> °C</snap>
+          </snap>
+        </div>
+      </div>
+      <div class="footer">
+        <a
+          href="https://github.com/Nyskelo/Weather-forecast"
+          target="_blank"
+          class="active-href"
+          >Open-source code
+        </a>
+        <snap class="sign">by TaTi</snap>
+      </div>
+      <script src="js/getDate.js"></script>
+      <script src="js/common.js"></script>
     </div>
-    <div class="footer"><a href="https://github.com/Nyskelo/Weather-forecast" target="_blank"
-        class="active-href">Open-source code </a>
-      <snap class="sign">by TaTi</snap>
-    </div>
-    <script src="js/getDate.js"></script>
-    <script src="js/common.js"></script>
-</body>
-
+  </body>
 </html>
