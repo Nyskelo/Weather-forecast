@@ -46,76 +46,84 @@ let friTemperatureMax = null;
 let friTemperatureMin = null;
 let satTemperatureMax = null;
 let satTemperatureMin = null;
+let days = ["sun", "mon", "tue", "wed", "thu", "fri", "sat"];
 
 function displayForecastDaily(response) {
   let forecast = response.data.daily;
   let dateSun = new Date(response.data.daily[0].dt * 1000);
+  let daySun = dateSun.getDay();
   let sunImgDay = document.querySelector("#imgsun");
   let sunDate = document.querySelector("#daySun");
   sunImgDay.setAttribute("src", `fotobank/${forecast[0].weather[0].icon}.svg`);
   sunTempMax.innerHTML = Math.round(forecast[0].temp.max);
   sunTempMin.innerHTML = ` ${Math.round(forecast[0].temp.min)}`;
-  sunDate.innerHTML = `Sun, ${dateSun.getDate()}`;
+  sunDate.innerHTML = `${days[daySun]}, ${dateSun.getDate()}`;
   sunTemperatureMax = Math.round(forecast[0].temp.max);
   sunTemperatureMin = Math.round(forecast[0].temp.min);
 
   let dateMon = new Date(response.data.daily[1].dt * 1000);
+  let dayMon = dateMon.getDay();
   let monImgDay = document.querySelector("#imgmon");
   let monDate = document.querySelector("#dayMon");
   monImgDay.setAttribute("src", `fotobank/${forecast[1].weather[0].icon}.svg`);
   monTempMax.innerHTML = Math.round(forecast[1].temp.max);
   monTempMin.innerHTML = ` ${Math.round(forecast[1].temp.min)}`;
-  monDate.innerHTML = `Mon, ${dateMon.getDate()}`;
+  monDate.innerHTML = `${days[dayMon]}, ${dateMon.getDate()}`;
   monTemperatureMax = Math.round(forecast[1].temp.max);
   monTemperatureMin = Math.round(forecast[1].temp.min);
 
   let dateTue = new Date(response.data.daily[2].dt * 1000);
+  let dayTue = dateTue.getDay();
   let tueImgDay = document.querySelector("#imgtue");
   let tueDate = document.querySelector("#dayTue");
   tueImgDay.setAttribute("src", `fotobank/${forecast[2].weather[0].icon}.svg`);
   tueTempMax.innerHTML = Math.round(forecast[2].temp.max);
   tueTempMin.innerHTML = ` ${Math.round(forecast[2].temp.min)}`;
-  tueDate.innerHTML = `Tue, ${dateTue.getDate()}`;
+  tueDate.innerHTML = `${days[dayTue]}, ${dateTue.getDate()}`;
   tueTemperatureMax = Math.round(forecast[2].temp.max);
   tueTemperatureMin = Math.round(forecast[2].temp.min);
 
   let dateWed = new Date(response.data.daily[3].dt * 1000);
+  let dayWed = dateWed.getDay();
   let wedImgDay = document.querySelector("#imgwed");
   let wedDate = document.querySelector("#dayWed");
   wedImgDay.setAttribute("src", `fotobank/${forecast[3].weather[0].icon}.svg`);
   wedTempMax.innerHTML = Math.round(forecast[3].temp.max);
   wedTempMin.innerHTML = ` ${Math.round(forecast[3].temp.min)}`;
-  wedDate.innerHTML = `Wed, ${dateWed.getDate()}`;
+  wedDate.innerHTML = `${days[dayWed]}, ${dateWed.getDate()}`;
   wedTemperatureMax = Math.round(forecast[3].temp.max);
   wedTemperatureMin = Math.round(forecast[3].temp.min);
 
   let dateThu = new Date(response.data.daily[4].dt * 1000);
+  let dayThu = dateThu.getDay();
   let thuImgDay = document.querySelector("#imgthu");
   let thuDate = document.querySelector("#dayThu");
   thuImgDay.setAttribute("src", `fotobank/${forecast[4].weather[0].icon}.svg`);
   thuTempMax.innerHTML = Math.round(forecast[4].temp.max);
   thuTempMin.innerHTML = ` ${Math.round(forecast[4].temp.min)}`;
-  thuDate.innerHTML = `Thu, ${dateThu.getDate()}`;
+  thuDate.innerHTML = `${days[dayThu]}, ${dateThu.getDate()}`;
   thuTemperatureMax = Math.round(forecast[4].temp.max);
   thuTemperatureMin = Math.round(forecast[4].temp.min);
 
   let dateFri = new Date(response.data.daily[5].dt * 1000);
+  let dayFri = dateFri.getDay();
   let friImgDay = document.querySelector("#imgfri");
   let friDate = document.querySelector("#dayFri");
   friImgDay.setAttribute("src", `fotobank/${forecast[5].weather[0].icon}.svg`);
   friTempMax.innerHTML = Math.round(forecast[5].temp.max);
   friTempMin.innerHTML = ` ${Math.round(forecast[5].temp.min)}`;
-  friDate.innerHTML = `Fri, ${dateFri.getDate()}`;
+  friDate.innerHTML = `${days[dayFri]}, ${dateFri.getDate()}`;
   friTemperatureMax = Math.round(forecast[5].temp.max);
   friTemperatureMin = Math.round(forecast[5].temp.min);
 
   let dateSat = new Date(response.data.daily[6].dt * 1000);
+  let daySat = dateSat.getDay();
   let satImgDay = document.querySelector("#imgsat");
   let satDate = document.querySelector("#daySat");
   satImgDay.setAttribute("src", `fotobank/${forecast[6].weather[0].icon}.svg`);
   satTempMax.innerHTML = Math.round(forecast[6].temp.max);
   satTempMin.innerHTML = ` ${Math.round(forecast[6].temp.min)}`;
-  satDate.innerHTML = `Sat, ${dateSat.getDate()}`;
+  satDate.innerHTML = `${days[daySat]}, ${dateSat.getDate()}`;
   satTemperatureMax = Math.round(forecast[6].temp.max);
   satTemperatureMin = Math.round(forecast[6].temp.min);
 }
@@ -246,19 +254,8 @@ function showCityLocation(position) {
   axios.get(cityUrl).then(showCityWeather);
 }
 
-function getActiveDay() {
-  let date = new Date();
-  let currentDay = new Intl.DateTimeFormat("en-US", {
-    weekday: "short",
-  });
-  let id = `${currentDay.format(date)}`;
-  id = id.toLocaleLowerCase();
-  document.getElementById(id).classList.add("active-day-js");
-}
-
 tempTodayC.addEventListener("click", lookTempC);
 tempTodayF.addEventListener("click", lookTempF);
 formInput.addEventListener("submit", getCity);
 location1.addEventListener("click", getLocation);
-getActiveDay();
 searchCity("Kyiv");
