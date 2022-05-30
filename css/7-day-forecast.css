@@ -52,9 +52,9 @@ a:hover {
     "current-date current-date current-date"
     "location location location"
     "today1 today2 today3"
-    "sun mon tue"
-    "wed thu fri"
-    "sat sat sat"
+    "day1 day2 day3"
+    "day4 day5 day6"
+    "day7 day7 day7"
     "footer footer footer";
   grid-gap: 0.6em;
   font-family: "Fredericka the Great", cursive;
@@ -322,13 +322,13 @@ li::first-letter {
   right: 0;
 }
 
-#sun,
-#mon,
-#tue,
-#wed,
-#thu,
-#fri,
-#sat {
+#day1,
+#day2,
+#day3,
+#day4,
+#day5,
+#day6,
+#day7 {
   border-radius: var(--main-radius);
   padding-top: var(--main-padding);
   font-size: 1.6em;
@@ -346,32 +346,32 @@ li::first-letter {
   /* -webkit-text-stroke: 0.3px #ffffff; */
 }
 
-#sun {
-  grid-area: sun;
+#day1 {
+  grid-area: day1;
 }
 
-#mon {
-  grid-area: mon;
+#day2 {
+  grid-area: day2;
 }
 
-#tue {
-  grid-area: tue;
+#day3 {
+  grid-area: day3;
 }
 
-#wed {
-  grid-area: wed;
+#day4 {
+  grid-area: day4;
 }
 
-#thu {
-  grid-area: thu;
+#day5 {
+  grid-area: day5;
 }
 
-#fri {
-  grid-area: fri;
+#day6 {
+  grid-area: day6;
 }
 
-#sat {
-  grid-area: sat;
+#day7 {
+  grid-area: day7;
 }
 
 .footer {
@@ -407,10 +407,10 @@ li::first-letter {
       "location location"
       "today1 today3"
       "today2 today2"
-      "sun mon"
-      "tue wed"
-      "thu fri"
-      "sat sat"
+      "day1 day2"
+      "day3 day4"
+      "day5 day6"
+      "day7 day7"
       "footer footer";
   }
 
