@@ -56,7 +56,7 @@ function displayForecastDaily(response) {
   let day1Date = document.querySelector("#dayDay1");
   day1ImgDay.setAttribute("src", `fotobank/${forecast[0].weather[0].icon}.svg`);
   day1TempMax.innerHTML = Math.round(forecast[0].temp.max);
-  day1TempMin.innerHTML = ` ${Math.round(forecast[0].temp.min)}`;
+  day1TempMin.innerHTML = ` / ${Math.round(forecast[0].temp.min)}`;
   day1Date.innerHTML = `${days[dayDay1]}, ${dateDay1.getDate()}`;
   day1TemperatureMax = Math.round(forecast[0].temp.max);
   day1TemperatureMin = Math.round(forecast[0].temp.min);
@@ -67,7 +67,7 @@ function displayForecastDaily(response) {
   let day2Date = document.querySelector("#dayDay2");
   day2ImgDay.setAttribute("src", `fotobank/${forecast[1].weather[0].icon}.svg`);
   day2TempMax.innerHTML = Math.round(forecast[1].temp.max);
-  day2TempMin.innerHTML = ` ${Math.round(forecast[1].temp.min)}`;
+  day2TempMin.innerHTML = ` / ${Math.round(forecast[1].temp.min)}`;
   day2Date.innerHTML = `${days[dayDay2]}, ${dateDay2.getDate()}`;
   day2TemperatureMax = Math.round(forecast[1].temp.max);
   day2TemperatureMin = Math.round(forecast[1].temp.min);
@@ -78,7 +78,7 @@ function displayForecastDaily(response) {
   let day3Date = document.querySelector("#dayDay3");
   day3ImgDay.setAttribute("src", `fotobank/${forecast[2].weather[0].icon}.svg`);
   day3TempMax.innerHTML = Math.round(forecast[2].temp.max);
-  day3TempMin.innerHTML = ` ${Math.round(forecast[2].temp.min)}`;
+  day3TempMin.innerHTML = ` / ${Math.round(forecast[2].temp.min)}`;
   day3Date.innerHTML = `${days[dayDay3]}, ${dateDay3.getDate()}`;
   day3TemperatureMax = Math.round(forecast[2].temp.max);
   day3TemperatureMin = Math.round(forecast[2].temp.min);
@@ -89,7 +89,7 @@ function displayForecastDaily(response) {
   let day4Date = document.querySelector("#dayDay4");
   day4ImgDay.setAttribute("src", `fotobank/${forecast[3].weather[0].icon}.svg`);
   day4TempMax.innerHTML = Math.round(forecast[3].temp.max);
-  day4TempMin.innerHTML = ` ${Math.round(forecast[3].temp.min)}`;
+  day4TempMin.innerHTML = ` / ${Math.round(forecast[3].temp.min)}`;
   day4Date.innerHTML = `${days[dayDay4]}, ${dateDay4.getDate()}`;
   day4TemperatureMax = Math.round(forecast[3].temp.max);
   day4TemperatureMin = Math.round(forecast[3].temp.min);
@@ -100,7 +100,7 @@ function displayForecastDaily(response) {
   let day5Date = document.querySelector("#dayDay5");
   day5ImgDay.setAttribute("src", `fotobank/${forecast[4].weather[0].icon}.svg`);
   day5TempMax.innerHTML = Math.round(forecast[4].temp.max);
-  day5TempMin.innerHTML = ` ${Math.round(forecast[4].temp.min)}`;
+  day5TempMin.innerHTML = ` / ${Math.round(forecast[4].temp.min)}`;
   day5Date.innerHTML = `${days[dayDay5]}, ${dateDay5.getDate()}`;
   day5TemperatureMax = Math.round(forecast[4].temp.max);
   day5TemperatureMin = Math.round(forecast[4].temp.min);
@@ -111,7 +111,7 @@ function displayForecastDaily(response) {
   let day6Date = document.querySelector("#dayDay6");
   day6ImgDay.setAttribute("src", `fotobank/${forecast[5].weather[0].icon}.svg`);
   day6TempMax.innerHTML = Math.round(forecast[5].temp.max);
-  day6TempMin.innerHTML = ` ${Math.round(forecast[5].temp.min)}`;
+  day6TempMin.innerHTML = ` / ${Math.round(forecast[5].temp.min)}`;
   day6Date.innerHTML = `${days[dayDay6]}, ${dateDay6.getDate()}`;
   day6TemperatureMax = Math.round(forecast[5].temp.max);
   day6TemperatureMin = Math.round(forecast[5].temp.min);
@@ -122,7 +122,7 @@ function displayForecastDaily(response) {
   let day7Date = document.querySelector("#dayDay7");
   day7ImgDay.setAttribute("src", `fotobank/${forecast[6].weather[0].icon}.svg`);
   day7TempMax.innerHTML = Math.round(forecast[6].temp.max);
-  day7TempMin.innerHTML = ` ${Math.round(forecast[6].temp.min)}`;
+  day7TempMin.innerHTML = ` / ${Math.round(forecast[6].temp.min)}`;
   day7Date.innerHTML = `${days[dayDay7]}, ${dateDay7.getDate()}`;
   day7TemperatureMax = Math.round(forecast[6].temp.max);
   day7TemperatureMin = Math.round(forecast[6].temp.min);
@@ -141,6 +141,11 @@ function showCityWeather(response) {
   tempFeel = Math.round(response.data.main.feels_like);
   feelTemp.innerHTML = tempFeel;
   feelDegree.innerHTML = ` °C`;
+  tempTodayC.innerHTML = `<snap>°C</snap>`;
+  feelTemp.innerHTML = tempFeel;
+  for (let i of feelDegree) {
+    i.innerHTML = ` °C`;
+  }
   humidity.innerHTML = response.data.main.humidity;
   pressure.innerHTML = Math.round(response.data.main.pressure);
   wind.innerHTML = Math.round((response.data.wind.speed * 60 * 60) / 1000);
@@ -196,19 +201,19 @@ function lookTempC() {
   tempTodayC.innerHTML = `<snap>°C</snap>`;
 
   day1TempMax.innerHTML = Math.round(day1TemperatureMax);
-  day1TempMin.innerHTML = ` ${Math.round(day1TemperatureMin)}`;
+  day1TempMin.innerHTML = ` / ${Math.round(day1TemperatureMin)}`;
   day2TempMax.innerHTML = Math.round(day2TemperatureMax);
-  day2TempMin.innerHTML = ` ${Math.round(day2TemperatureMin)}`;
+  day2TempMin.innerHTML = ` / ${Math.round(day2TemperatureMin)}`;
   day3TempMax.innerHTML = Math.round(day3TemperatureMax);
-  day3TempMin.innerHTML = ` ${Math.round(day3TemperatureMin)}`;
+  day3TempMin.innerHTML = ` / ${Math.round(day3TemperatureMin)}`;
   day4TempMax.innerHTML = Math.round(day4TemperatureMax);
-  day4TempMin.innerHTML = ` ${Math.round(day4TemperatureMin)}`;
+  day4TempMin.innerHTML = ` / ${Math.round(day4TemperatureMin)}`;
   day5TempMax.innerHTML = Math.round(day5TemperatureMax);
-  day5TempMin.innerHTML = ` ${Math.round(day5TemperatureMin)}`;
+  day5TempMin.innerHTML = ` / ${Math.round(day5TemperatureMin)}`;
   day6TempMax.innerHTML = Math.round(day6TemperatureMax);
-  day6TempMin.innerHTML = ` ${Math.round(day6TemperatureMin)}`;
+  day6TempMin.innerHTML = ` / ${Math.round(day6TemperatureMin)}`;
   day7TempMax.innerHTML = Math.round(day7TemperatureMax);
-  day7TempMin.innerHTML = ` ${Math.round(day7TemperatureMin)}`;
+  day7TempMin.innerHTML = ` / ${Math.round(day7TemperatureMin)}`;
 }
 
 function lookTempF() {
@@ -227,19 +232,19 @@ function lookTempF() {
   tempTodayF.classList.remove("active-href");
 
   day1TempMax.innerHTML = Math.round((day1TemperatureMax * 9) / 5 + 32);
-  day1TempMin.innerHTML = ` ${Math.round((day1TemperatureMin * 9) / 5 + 32)}`;
+  day1TempMin.innerHTML = ` / ${Math.round((day1TemperatureMin * 9) / 5 + 32)}`;
   day2TempMax.innerHTML = Math.round((day2TemperatureMax * 9) / 5 + 32);
-  day2TempMin.innerHTML = ` ${Math.round((day2TemperatureMin * 9) / 5 + 32)}`;
+  day2TempMin.innerHTML = ` / ${Math.round((day2TemperatureMin * 9) / 5 + 32)}`;
   day3TempMax.innerHTML = Math.round((day3TemperatureMax * 9) / 5 + 32);
-  day3TempMin.innerHTML = ` ${Math.round((day3TemperatureMin * 9) / 5 + 32)}`;
+  day3TempMin.innerHTML = ` / ${Math.round((day3TemperatureMin * 9) / 5 + 32)}`;
   day4TempMax.innerHTML = Math.round((day4TemperatureMax * 9) / 5 + 32);
-  day4TempMin.innerHTML = ` ${Math.round((day4TemperatureMin * 9) / 5 + 32)}`;
+  day4TempMin.innerHTML = ` / ${Math.round((day4TemperatureMin * 9) / 5 + 32)}`;
   day5TempMax.innerHTML = Math.round((day5TemperatureMax * 9) / 5 + 32);
-  day5TempMin.innerHTML = ` ${Math.round((day5TemperatureMin * 9) / 5 + 32)}`;
+  day5TempMin.innerHTML = ` / ${Math.round((day5TemperatureMin * 9) / 5 + 32)}`;
   day6TempMax.innerHTML = Math.round((day6TemperatureMax * 9) / 5 + 32);
-  day6TempMin.innerHTML = ` ${Math.round((day6TemperatureMin * 9) / 5 + 32)}`;
+  day6TempMin.innerHTML = ` / ${Math.round((day6TemperatureMin * 9) / 5 + 32)}`;
   day7TempMax.innerHTML = Math.round((day7TemperatureMax * 9) / 5 + 32);
-  day7TempMin.innerHTML = ` ${Math.round((day7TemperatureMin * 9) / 5 + 32)}`;
+  day7TempMin.innerHTML = ` / ${Math.round((day7TemperatureMin * 9) / 5 + 32)}`;
 }
 
 function getLocation() {
